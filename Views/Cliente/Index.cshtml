@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Exerc01_CadastroCliente.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista Clientes";
+}
+<h1>Tarefas</h1>
+<p>
+    <a class="btn btn-success" asp-action="Create">Adicionar Tarefa</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Telefone
+                </td>
+                <td>
+                    @item.Endereco
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id">
+                        Editar
+                    </a>
+                    <a class="btn btn-outline-info btn-sm" asp-action="Details" asp-route-id="@item.Id">
+                        Detalhes
+                    </a>
+                    <a class="btn btn-danger text-white btn-sm" asp-action="Delete" asp-route-id="@item.Id">
+                        Apagar
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
